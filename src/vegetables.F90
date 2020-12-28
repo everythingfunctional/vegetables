@@ -34,7 +34,9 @@ module vegetables
             assert_equals, &
             assert_equals_within_absolute, &
             assert_equals_within_relative, &
+#ifndef AVOID_INTEL_BUG
             assert_faster_than, &
+#endif
             assert_includes, &
             assert_not, &
             assert_that, &
@@ -550,6 +552,7 @@ module vegetables
         module procedure assert_equals_within_relative_with_messages_ss
     end interface
 
+#ifndef AVOID_INTEL_BUG
     interface assert_faster_than
         module procedure assert_faster_than_absolute_bracketed
         module procedure assert_faster_than_absolute_bracketed_with_message_c
@@ -580,6 +583,7 @@ module vegetables
         module procedure assert_faster_than_relative_simple_with_messages_sc
         module procedure assert_faster_than_relative_simple_with_messages_ss
     end interface
+#endif
 
     interface assert_includes
         module procedure assert_includes_cc
@@ -2509,6 +2513,7 @@ contains
         end if
     end function
 
+#ifndef AVOID_INTEL_BUG
     function assert_faster_than_absolute_bracketed( &
             reference, &
             before, &
@@ -3394,6 +3399,7 @@ contains
                     failure_message))
         end if
     end function
+#endif
 
     pure function assert_includes_cc( &
                 search_for, &
