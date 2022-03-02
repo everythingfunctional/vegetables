@@ -94,25 +94,19 @@ contains
         class(input_t), intent(in) :: input
         type(test_result_item_t) :: result_
 
-        if (DEBUG) call put_line( &
-                "Beginning execution of: " // self%description_ &
-                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+        if (DEBUG) call put_line("Beginning execution of: " // self%description_)
         if (self%has_setup_and_teardown) call self%setup
         result_ = test_result_item_t(test_case_result_t( &
                 self%description_, self%test(input)))
         if (self%has_setup_and_teardown) call self%teardown
-        if (DEBUG) call put_line( &
-                "Completed execution of: " // self%description_&
-                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+        if (DEBUG) call put_line("Completed execution of: " // self%description_)
     end function
 
     function run_without_input(self) result(result_)
         class(input_test_case_t), intent(in) :: self
         type(test_result_item_t) :: result_
 
-        if (DEBUG) call put_line( &
-                "Improper use of: " // self%description_&
-                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+        if (DEBUG) call put_line("Improper use of: " // self%description_)
         result_ = test_result_item_t(test_case_result_t( &
                 self%description_, fail("No input provided")))
     end function

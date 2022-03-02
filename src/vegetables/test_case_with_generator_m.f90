@@ -120,9 +120,7 @@ contains
         type(result_t) :: previous_result
         type(shrink_result_t) :: simpler_value
 
-        if (DEBUG) call put_line( &
-                "Beginning execution of: " // self%description_&
-                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+        if (DEBUG) call put_line("Beginning execution of: " // self%description_)
         if (self%has_setup_and_teardown) call self%setup
         do i = 1, NUM_GENERATOR_TESTS
             generated_value = self%generator%generate()
@@ -143,18 +141,14 @@ contains
                                 self%description_, &
                                 fail('Found simplest example causing failure').and.previous_result))
                         if (self%has_setup_and_teardown) call self%teardown
-                        if (DEBUG) call put_line( &
-                                "Completed execution of: " // self%description_&
-                                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+                        if (DEBUG) call put_line("Completed execution of: " // self%description_)
                         return
                     else
                         result_ = test_result_item_t(test_case_result_t( &
                                 self%description_, &
                                 fail('Fails with the simplest possible example').and.new_result))
                         if (self%has_setup_and_teardown) call self%teardown
-                        if (DEBUG) call put_line( &
-                                "Completed execution of: " // self%description_&
-                                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+                        if (DEBUG) call put_line("Completed execution of: " // self%description_)
                         return
                     end if
                 else
@@ -163,9 +157,7 @@ contains
                                 self%description_, &
                                 fail('Found simplest example causing failure').and.previous_result))
                         if (self%has_setup_and_teardown) call self%teardown
-                        if (DEBUG) call put_line( &
-                                "Completed execution of: " // self%description_&
-                                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+                        if (DEBUG) call put_line("Completed execution of: " // self%description_)
                         return
                     else
                         previous_result = new_result
@@ -178,8 +170,6 @@ contains
                     fail("Exhausted shrink attempts looking for simplest value causing failure").and.previous_result))
         end if
         if (self%has_setup_and_teardown) call self%teardown
-        if (DEBUG) call put_line( &
-                "Completed execution of: " // self%description_&
-                // merge(" on image " // to_string(this_image()), var_str(""), num_images() > 1))
+        if (DEBUG) call put_line("Completed execution of: " // self%description_)
     end function
 end module
