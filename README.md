@@ -3,6 +3,12 @@ Vegetables
 
 [![pipeline status](https://gitlab.com/everythingfunctional/vegetables/badges/main/pipeline.svg)](https://gitlab.com/everythingfunctional/vegetables/-/commits/main)
 
+## This Project is Now Dormant!
+
+It has been superseded by the new projects
+[veggies](https://gitlab.com/everythingfunctional/veggies) and
+[garden](https://gitlab.com/everythingfunctional/garden).
+
 For a healthier code base, eat your vegetables.
 
 Vegetables is a Fortran unit testing framework written using functional programming principles.
